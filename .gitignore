@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+.env
+venv/
+ENV/
+.venv
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# VS Code
+.vscode/
+
+# Excel temporary files
+~$*.xlsx
+~$*.xls
+
+# Power BI
+*.pbix~
+*.pbit~
+
+# Data files (optional - uncomment if datasets are too large)
+# data/raw/*.csv
+# data/raw/*.xlsx
+# data/processed/*.csv
+# data/processed/*.xlsx
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+
+# Reports
+*.pptx~
+*.docx~
