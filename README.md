@@ -2,6 +2,8 @@
 
 ![Project Status](https://img.shields.io/badge/status-completed-success)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Power BI](https://img.shields.io/badge/PowerBI-Interactive%20Dashboard-yellow)
+![Data Sources](https://img.shields.io/badge/Data%20Sources-FRED%20|%20World%20Bank%20|%20WGC%20|%20IMF-blueviolet)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A comprehensive data analysis project exploring the relationship between gold prices and global macroeconomic indicators from 2014 to 2024.
@@ -60,11 +62,66 @@ This project analyzes gold as a global economic indicator by examining its relat
   - Advanced DAX calculations
   - Time series visualizations
 
-- **Data Sources**
-  - Federal Reserve Economic Data (FRED)
-  - World Bank Open Data
-  - World Gold Council
-  - International Monetary Fund (IMF)
+## 📡 Data Sources (Detailed)
+
+| Source | Purpose | Example Series / Identifier |
+|--------|--------|-----------------------------|
+| FRED (Federal Reserve) | Macro & market indicators | `DTWEXBGS` (USD Index), `DFII10` (US 10Y TIPS real rate), `CPIAUCSL` (CPI), `DCOILBRENTEU` (Brent Oil), `SP500` (S&P 500), `VIXCLS` (VIX), `GFDEGDQ188S` (US Debt/GDP) |
+| World Bank | Global growth metrics | `NY.GDP.MKTP.KD.ZG` (China GDP growth % real) |
+| World Gold Council | Gold production & reserves | Annual production volumes, official holdings |
+| IMF / International Statistics | Monetary reserves context | Global FX reserves, gold reserve reports |
+
+You can refresh the dataset by re-running `notebooks/dataset_builder.ipynb` (requires internet access). All quarterly transformations are performed in-code via resampling utilities.
+
+### FRED Series Retrieval Quick Reference
+```python
+fred_series = [
+  "DTWEXBGS",      # USD Broad Index
+  "DFII10",        # 10Y TIPS Real Rate
+  "CPIAUCSL",      # CPI (processed to YoY inflation)
+  "DCOILBRENTEU",  # Brent Oil Price
+  "SP500",         # S&P 500 Index
+  "VIXCLS",        # Volatility Index
+  "GFDEGDQ188S"    # US Debt/GDP Ratio
+]
+```
+
+### World Bank Indicator
+```python
+wb_indicator = "NY.GDP.MKTP.KD.ZG"  # China real GDP growth (% change)
+```
+
+### Quarterly Transformation Helpers (Excerpt)
+```python
+def to_quarter_avg(s):
+  s = pd.Series(s).dropna()
+  s.index = pd.to_datetime(s.index)
+  return s.resample("Q").mean()
+
+def to_quarter_ffill(s):
+  s = pd.Series(s).dropna()
+  s.index = pd.to_datetime(s.index)
+  return s.resample("Q").ffill()
+```
+
+## 📊 Power BI Dashboard Enhancements
+
+The `powerbi/oro_y_poder.pbix` file contains:
+- Dynamic time-series comparison between gold price and macro drivers.
+- Slicers for date range, driver selection, and regional gold reserves.
+- DAX measures for YoY change, rolling averages, and volatility scoring.
+- Correlation visuals aligning gold movements with USD strength and real rates.
+
+### Updating the Dashboard
+1. Refresh data connections (if pointing to local processed Excel files).
+2. Re-run the dataset builder notebook for latest macro data.
+3. Export visuals for reports (File > Export > PDF or PowerPoint).
+4. Optional: Publish to Power BI Service for cloud sharing.
+
+### Recommended Additional Visuals (Future Work)
+- Decomposition tree: Gold price contributors per quarter.
+- Scatter matrix: Multi-driver comparative influence.
+- Forecast visual: ARIMA or Prophet integration via R/Python script in Power BI.
 
 ## 📈 Dataset Description
 
