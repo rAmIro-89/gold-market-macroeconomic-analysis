@@ -1,0 +1,4 @@
+# Central configuration
+DATA_DIR = 'data'
+RAW_DIR = f'{DATA_DIR}/raw'
+PROCESSED_DIR = f'{DATA_DIR}/processed'

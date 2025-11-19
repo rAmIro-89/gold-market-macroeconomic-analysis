@@ -25,28 +25,97 @@ This project analyzes gold as a global economic indicator by examining its relat
 - Real interest rates significantly impact gold demand
 - Emerging market growth (China) influences gold consumption patterns
 
-## 📁 Project Structure
+## 📁 Repository Structure (Reorganized)
 
 ```
-├── data/
-│   ├── raw/                    # Original datasets
-│   │   └── gold_longterm_drivers.xlsx
-│   └── processed/              # Cleaned and transformed data
-│       └── gold_dataset_final.xlsx
-├── notebooks/
-│   ├── dataset_builder.ipynb  # Data collection and preprocessing
-│   └── gold_analysis.ipynb    # Exploratory analysis and insights
-├── powerbi/
-│   └── oro_y_poder.pbix       # Interactive dashboard
-├── reports/
-│   └── final_presentation.pdf # Project findings presentation
-├── docs/
-│   └── methodology.pdf        # Data collection methodology
-├── src/                       # Python utility scripts
-├── requirements.txt
-├── .gitignore
-└── README.md
+data/
+  raw/                       # Original source datasets
+    gold_longterm_drivers.xlsx
+  processed/                 # Cleaned / transformed tables
+    gold_dataset_final.xlsx
+
+notebooks/
+  01_data_cleaning.ipynb     # Loading & initial cleaning
+  02_eda.ipynb               # Exploratory data analysis
+  03_gold_vs_macro.ipynb     # Relationships gold vs macro drivers
+  04_final_plots.ipynb       # Final visual assets for reporting
+
+src/
+  data_prep/
+    load_data.py             # Centralized loading utilities
+    clean_data.py            # Column normalization & basic cleaning
+  analysis/
+    time_series.py           # Quarterly resampling helpers
+    correlations.py          # Correlation computation utilities
+    macro_relations.py       # Lagged relationships & macro impact
+  utils/
+    config.py                # Path / configuration constants
+    plotting.py              # Reusable plotting helpers
+
+reports/
+  figures/                   # (Generated plots exported manually)
+  dashboards/
+    oro_y_poder.pbix         # Power BI interactive dashboard
+  final_presentation.pdf     # Summary deck
+
+docs/
+  overview.md
+  methodology.md
+  data_sources.md
+
+requirements.txt
+.gitignore
+README.md
+LICENSE
 ```
+
+## ❓ Key Questions & Hypotheses
+
+1. How strongly do real interest rates explain quarterly movements in gold prices?
+2. Does gold consistently act as a hedge during spikes in market volatility (VIX)?
+3. Is USD weakness (broad dollar index) a leading indicator for gold rallies?
+4. Do emerging market growth metrics (e.g., China GDP) align with structural demand trends?
+5. Are debt sustainability signals (US Debt/GDP) associated with flight-to-safety flows into gold?
+
+## 🧪 Methods & Approach
+
+- Data ingestion via FRED & World Bank APIs (scripted logic in original notebooks)
+- Frequency normalization: daily/monthly series aggregated to quarterly (mean or forward fill)
+- Feature engineering: YoY inflation, lag correlations, macro alignment
+- Exploratory Data Analysis: distribution checks, correlation matrices, time-series overlays
+- Macro relationship assessment: lagged correlation analysis & comparative trend inspection
+- Visualization: Python (matplotlib/seaborn) + Power BI (interactive filtering & breakdowns)
+
+## 🔄 How to Run
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Open notebooks in order
+jupyter notebook notebooks/
+
+# 3. (Optional) Use src/ modules inside notebooks
+from src.data_prep.load_data import load_gold_longterm
+```
+
+Power BI dashboard: open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop.
+
+## 💡 Summary of Insights (Condensed)
+
+- Real rates remain the dominant macro driver (inverse linkage).
+- Periods of elevated volatility (VIX) coincide with defensive bids for gold.
+- Sustained USD softness amplifies multi-quarter gold advances.
+- Structural demand (China growth) provides a supportive backdrop rather than short-term timing signal.
+- Debt burden metrics align with longer-term safe-haven narratives rather than immediate price pivots.
+
+## 🚀 Future Improvements
+
+- Add automated API refresh pipeline (scheduled job / script).
+- Introduce multivariate regression / ML feature importance ranking.
+- Expand geographic demand segmentation (India, Middle East, ETF flows).
+- Integrate forecasting (ARIMA / Prophet) for scenario testing.
+- Containerize environment for reproducibility (Docker).
 
 ## 🛠️ Technologies Used
 

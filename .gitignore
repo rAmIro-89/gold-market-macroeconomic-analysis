@@ -11,6 +11,10 @@ build/
 venv/
 ENV/
 .venv
+.env.*
+.python-version
+*.cache/
+__pycache__/
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
@@ -26,6 +30,8 @@ ENV/
 # Power BI
 *.pbix~
 *.pbit~
+reports/dashboards/*.pbix.backup
+reports/dashboards/*.pbit.backup
 
 # Data files (optional - uncomment if datasets are too large)
 # data/raw/*.csv
@@ -43,3 +49,6 @@ Thumbs.db
 # Reports
 *.pptx~
 *.docx~
+reports/figures/*.png
+reports/figures/*.jpg
+reports/figures/*.pdf
