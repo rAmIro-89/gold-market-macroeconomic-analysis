@@ -238,9 +238,11 @@ jupyter notebook notebooks/
 
 ### Running the Analysis
 
-1. **Data Collection:** Open `notebooks/dataset_builder.ipynb` to see how the dataset was constructed from multiple APIs
-2. **Exploratory Analysis:** Open `notebooks/gold_analysis.ipynb` for in-depth analysis and visualizations
-3. **Interactive Dashboard:** Open `powerbi/oro_y_poder.pbix` in Power BI Desktop
+1. **Data Collection & Cleaning:** Open `notebooks/01_data_cleaning.ipynb` to inspect loading and initial normalization.
+2. **Exploratory Analysis (EDA):** Open `notebooks/02_eda.ipynb` for distributions, correlations and preliminary visuals.
+3. **Macro Relationships:** Open `notebooks/03_gold_vs_macro.ipynb` to explore gold vs USD index, real rates, inflation, oil, equities, volatility, China growth.
+4. **Final Visual Assets:** Open `notebooks/04_final_plots.ipynb` for consolidated figures used in reporting.
+5. **Interactive Dashboard:** Open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop.
 
 ## 📊 Power BI Dashboard
 
@@ -258,7 +260,7 @@ The Power BI dashboard includes:
 4. **Exploratory Data Analysis:** Statistical analysis and visualization
 5. **Dashboard Development:** Interactive Power BI reporting
 
-For detailed methodology, see [docs/methodology.pdf](docs/methodology.pdf)
+For detailed methodology, see [docs/methodology.md](docs/methodology.md)
 
 ## 📝 Key Insights
 
