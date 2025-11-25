@@ -6,7 +6,24 @@
 ![Data Sources](https://img.shields.io/badge/Data%20Sources-FRED%20|%20World%20Bank%20|%20WGC%20|%20IMF-blueviolet)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A comprehensive data analysis project exploring the relationship between gold prices and global macroeconomic indicators from 2014 to 2024.
+> **Comprehensive macroeconomic analysis exploring gold as a global economic indicator**  
+> Analyzes relationships between gold prices and key economic drivers (2014-2024)
+
+## 🎯 Business Problem
+
+Investors, portfolio managers, and financial analysts need to understand gold's behavior as:
+- **Inflation hedge** during periods of currency devaluation
+- **Safe-haven asset** during market volatility and geopolitical uncertainty
+- **Portfolio diversifier** with low correlation to equities
+- **Leading indicator** for monetary policy impacts
+
+This analysis provides data-driven insights into gold price drivers to support:
+- Asset allocation decisions
+- Risk management strategies
+- Market timing for precious metals exposure
+- Understanding macroeconomic regime shifts
+
+**Target Audience:** Portfolio managers, commodity traders, wealth advisors, central bank analysts
 
 ## 📊 Project Overview
 
@@ -88,16 +105,57 @@ LICENSE
 
 ## 🔄 How to Run
 
+### Prerequisites
+- Python 3.9 or higher
+- Power BI Desktop (optional, for dashboard)
+- FRED API access (for data refresh)
+
+### Setup Instructions
+
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/rAmIro-89/gold-market-macroeconomic-analysis.git
+cd gold-market-macroeconomic-analysis
+
+# 2. Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (Mac/Linux)
+source venv/bin/activate
+
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 2. Open notebooks in order
+# 4. Run Jupyter notebooks in sequence
 jupyter notebook notebooks/
-
-# 3. (Optional) Use src/ modules inside notebooks
-from src.data_prep.load_data import load_gold_longterm
 ```
+
+### Quick Start with Source Code
+
+```python
+# Use reusable functions from src/
+from src.data_prep.load_data import load_gold_longterm
+from src.analysis.correlations import calculate_correlations
+from src.utils.plotting import plot_time_series
+
+# Load preprocessed data
+df = load_gold_longterm('data/processed/gold_dataset_final.xlsx')
+
+# Calculate correlations with gold price
+corr_matrix = calculate_correlations(df, target_col='gold_price')
+
+# Visualize time series
+plot_time_series(df, ['gold_price', 'usd_index', 'real_rates'])
+```
+
+### Power BI Dashboard
+
+Open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop for interactive exploration.
+
+---
 
 Power BI dashboard: open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop.
 
