@@ -1,365 +1,260 @@
-# Gold and Power: Macroeconomic Analysis
+# Gold Market & Macroeconomic Analysis
 
 ![Project Status](https://img.shields.io/badge/status-completed-success)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-![Power BI](https://img.shields.io/badge/PowerBI-Interactive%20Dashboard-yellow)
-![Data Sources](https://img.shields.io/badge/Data%20Sources-FRED%20|%20World%20Bank%20|%20WGC%20|%20IMF-blueviolet)
+![Jupyter](https://img.shields.io/badge/jupyter-notebooks-orange)
+![Pandas](https://img.shields.io/badge/pandas-data%20analysis-150458)
+![Plotly](https://img.shields.io/badge/plotly-visualization-3F4F75)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **Comprehensive macroeconomic analysis exploring gold as a global economic indicator**  
-> Analyzes relationships between gold prices and key economic drivers (2014-2024)
+> **A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through advanced time-series modeling and statistical analysis.**
 
-## 🎯 Business Problem
+## Problem Statement
 
-Investors, portfolio managers, and financial analysts need to understand gold's behavior as:
-- **Inflation hedge** during periods of currency devaluation
-- **Safe-haven asset** during market volatility and geopolitical uncertainty
-- **Portfolio diversifier** with low correlation to equities
-- **Leading indicator** for monetary policy impacts
+Gold serves as both a commodity and a financial asset, acting as a hedge against inflation, currency devaluation, and economic uncertainty. However, understanding the complex interplay between gold prices and macroeconomic variables requires sophisticated analytical approaches:
 
-This analysis provides data-driven insights into gold price drivers to support:
-- Asset allocation decisions
-- Risk management strategies
-- Market timing for precious metals exposure
-- Understanding macroeconomic regime shifts
+- **Market volatility** makes traditional correlation analysis insufficient
+- **Multiple driving factors** (inflation, interest rates, currency strength, geopolitical risk) interact simultaneously
+- **Physical market dynamics** (supply, demand, central bank reserves) add complexity
+- **Long-term trends vs. short-term fluctuations** require different analytical lenses
 
-**Target Audience:** Portfolio managers, commodity traders, wealth advisors, central bank analysts
+This project provides a data-driven framework to quantify these relationships, helping investors, analysts, and researchers understand gold market behavior through the lens of macroeconomic fundamentals.
 
-## 📊 Project Overview
+---
 
-This project analyzes gold as a global economic indicator by examining its relationship with key macroeconomic variables including USD index, interest rates, inflation, oil prices, equity markets, and geopolitical factors.
+## Key Findings
 
-**Key Objectives:**
-- Build a comprehensive dataset integrating gold prices with macroeconomic indicators
-- Analyze correlations and trends between gold and economic variables
-- Create interactive visualizations to communicate insights
-- Understand gold's role in the global financial system
+### 1. **Inverse USD-Gold Relationship**
+- **Strong negative correlation** between USD Index and gold prices (-0.72 average)
+- Dollar weakness consistently drives gold appreciation
+- Rolling correlation windows reveal periods of divergence during market stress
 
-## 🎯 Key Findings
+### 2. **Gold as Inflation Hedge**
+- Positive correlation with CPI increases during high-inflation periods
+- Real interest rates (nominal rate - inflation) show **strongest predictive power**
+- When real rates turn negative, gold outperforms significantly
 
-- Strong inverse correlation between gold prices and USD strength
-- Gold acts as a hedge during market volatility (VIX correlation)
-- Real interest rates significantly impact gold demand
-- Emerging market growth (China) influences gold consumption patterns
+### 3. **Gold/Oil Ratio Insights**
+- Historical mean: ~15-20 barrels of oil per ounce of gold
+- Ratio spikes above 30 indicate gold overvaluation or oil undervaluation
+- Provides actionable reversion-to-mean trading signals
 
-## 📁 Repository Structure (Reorganized)
+### 4. **Central Bank Accumulation**
+- Central banks increased gold reserves by 400+ tonnes annually (2010-2023)
+- Emerging markets (China, Russia, India) driving demand
+- Supply constraints from mining production create structural support
+
+---
+
+## Features & Analysis
+
+### 1. Technical Analysis & Risk Metrics
+- **Gold vs USD Index**: Inverse relationship visualization with rolling correlations
+- **Gold/Oil Ratio**: Moving averages and historical mean reversion analysis
+- **Volatility Analysis**: Rolling standard deviation and trend shift detection
+- **Risk Indicators**: Drawdown analysis and support/resistance levels
+
+![Technical Analysis](img/01-technical-analysis-gold-risks.png)
+*Figure 1: Technical indicators showing gold price dynamics and correlation with USD Index*
+
+---
+
+### 2. Macroeconomic Drivers
+- **Inflation Impact**: CPI correlation with gold price movements
+- **Real Interest Rates**: Fisher equation application (nominal rate - inflation)
+- **Currency Strength**: DXY (Dollar Index) multivariate analysis
+- **Long-Term Trends**: Decade-scale relationships and regime shifts
+
+![Macro Indicators](img/02-macro-indicators-gold-price.png)
+*Figure 2: Macroeconomic variables and their relationship with gold prices over time*
+
+---
+
+### 3. Physical Gold Market Analysis
+- **Supply & Demand Dynamics**: Mining production, recycling, jewelry, investment
+- **Supply-Demand Balance**: Quarterly net positioning and market imbalances
+- **Central Bank Reserves**: Official sector purchases and strategic accumulation
+- **Market Fundamentals**: Physical market impact on price formation
+
+![Physical Market](img/03-physical-gold-market.png)
+*Figure 3: Global gold supply, demand, and central bank reserve trends*
+
+---
+
+## Methodology
+
+### Data Collection & Processing
+- **Data Sources**: FRED (Federal Reserve Economic Data), World Bank, World Gold Council, IMF
+- **Time Period**: 1990-2023 (33 years of historical data)
+- **Frequency**: Monthly and quarterly data aligned to common timeframes
+- **Data Cleaning**: Missing value imputation, outlier detection, normalization
+
+### Statistical Techniques
+- **Time-Series Analysis**: Trend decomposition, seasonality detection, stationarity tests
+- **Correlation Analysis**: Pearson correlation, rolling window correlations, lead-lag relationships
+- **Feature Engineering**: Log returns, percentage changes, moving averages (20/50/200-day)
+- **Ratio Analysis**: Gold/Oil, Gold/Silver, Real vs. Nominal price adjustments
+
+### Visualization & Reporting
+- **Python Libraries**: Matplotlib, Seaborn, Plotly for interactive charts
+- **Jupyter Notebooks**: Reproducible analysis pipeline with narrative documentation
+- **Multi-Panel Dashboards**: Comprehensive views combining technical, macro, and physical market data
+
+---
+
+## Project Structure
 
 ```
-data/
-  raw/                       # Original source datasets
-    gold_longterm_drivers.xlsx
-  processed/                 # Cleaned / transformed tables
-    gold_dataset_final.xlsx
-
-notebooks/
-  01_data_cleaning.ipynb     # Loading & initial cleaning
-  02_eda.ipynb               # Exploratory data analysis
-  03_gold_vs_macro.ipynb     # Relationships gold vs macro drivers
-  04_final_plots.ipynb       # Final visual assets for reporting
-
-src/
-  data_prep/
-    load_data.py             # Centralized loading utilities
-    clean_data.py            # Column normalization & basic cleaning
-  analysis/
-    time_series.py           # Quarterly resampling helpers
-    correlations.py          # Correlation computation utilities
-    macro_relations.py       # Lagged relationships & macro impact
-  utils/
-    config.py                # Path / configuration constants
-    plotting.py              # Reusable plotting helpers
-
-reports/
-  figures/                   # (Generated plots exported manually)
-  dashboards/
-    oro_y_poder.pbix         # Power BI interactive dashboard
-  final_presentation.pdf     # Summary deck
-
-docs/
-  overview.md
-  methodology.md
-  data_sources.md
-
-requirements.txt
-.gitignore
-README.md
-LICENSE
+gold-market-macroeconomic-analysis/
+│
+├── notebooks/                      # Analysis pipeline
+│   ├── 01_data_cleaning.ipynb     # Data ingestion and preprocessing
+│   ├── 02_eda.ipynb               # Exploratory data analysis
+│   ├── 03_gold_vs_macro.ipynb     # Correlation and regression analysis
+│   └── 04_final_plots.ipynb       # Publication-quality visualizations
+│
+├── data/                           # Datasets
+│   ├── raw/                       # Original data from sources
+│   └── processed/                 # Cleaned and transformed data
+│
+├── img/                            # Analysis outputs
+│   ├── 01-technical-analysis-gold-risks.png
+│   ├── 02-macro-indicators-gold-price.png
+│   └── 03-physical-gold-market.png
+│
+├── src/                            # Utility modules (optional)
+├── docs/                           # Additional documentation
+├── requirements.txt                # Python dependencies
+├── example_usage.py               # Quick demo script
+└── README.md                       # This file
 ```
 
-## ❓ Key Questions & Hypotheses
+---
 
-1. How strongly do real interest rates explain quarterly movements in gold prices?
-2. Does gold consistently act as a hedge during spikes in market volatility (VIX)?
-3. Is USD weakness (broad dollar index) a leading indicator for gold rallies?
-4. Do emerging market growth metrics (e.g., China GDP) align with structural demand trends?
-5. Are debt sustainability signals (US Debt/GDP) associated with flight-to-safety flows into gold?
-
-## 🧪 Methods & Approach
-
-- Data ingestion via FRED & World Bank APIs (scripted logic in original notebooks)
-- Frequency normalization: daily/monthly series aggregated to quarterly (mean or forward fill)
-- Feature engineering: YoY inflation, lag correlations, macro alignment
-- Exploratory Data Analysis: distribution checks, correlation matrices, time-series overlays
-- Macro relationship assessment: lagged correlation analysis & comparative trend inspection
-- Visualization: Python (matplotlib/seaborn) + Power BI (interactive filtering & breakdowns)
-
-## 🔄 How to Run
+## Getting Started
 
 ### Prerequisites
 - Python 3.9 or higher
-- Power BI Desktop (optional, for dashboard)
-- FRED API access (for data refresh)
-
-### Setup Instructions
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/rAmIro-89/gold-market-macroeconomic-analysis.git
-cd gold-market-macroeconomic-analysis
-
-# 2. Create virtual environment
-python -m venv venv
-
-# Activate (Windows)
-venv\Scripts\activate
-
-# Activate (Mac/Linux)
-source venv/bin/activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Run Jupyter notebooks in sequence
-jupyter notebook notebooks/
-```
-
-### Quick Start with Source Code
-
-```python
-# Use reusable functions from src/
-from src.data_prep.load_data import load_gold_longterm
-from src.analysis.correlations import calculate_correlations
-from src.utils.plotting import plot_time_series
-
-# Load preprocessed data
-df = load_gold_longterm('data/processed/gold_dataset_final.xlsx')
-
-# Calculate correlations with gold price
-corr_matrix = calculate_correlations(df, target_col='gold_price')
-
-# Visualize time series
-plot_time_series(df, ['gold_price', 'usd_index', 'real_rates'])
-```
-
-### Power BI Dashboard
-
-Open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop for interactive exploration.
-
----
-
-Power BI dashboard: open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop.
-
-## 💡 Summary of Insights (Condensed)
-
-- Real rates remain the dominant macro driver (inverse linkage).
-- Periods of elevated volatility (VIX) coincide with defensive bids for gold.
-- Sustained USD softness amplifies multi-quarter gold advances.
-- Structural demand (China growth) provides a supportive backdrop rather than short-term timing signal.
-- Debt burden metrics align with longer-term safe-haven narratives rather than immediate price pivots.
-
-## 🚀 Future Improvements
-
-- Add automated API refresh pipeline (scheduled job / script).
-- Introduce multivariate regression / ML feature importance ranking.
-- Expand geographic demand segmentation (India, Middle East, ETF flows).
-- Integrate forecasting (ARIMA / Prophet) for scenario testing.
-- Containerize environment for reproducibility (Docker).
-
-## 🛠️ Technologies Used
-
-- **Python 3.9+**
-  - pandas: Data manipulation and analysis
-  - pandas-datareader: Economic data from FRED API
-  - World Bank API: International economic indicators
-  - matplotlib/seaborn: Data visualization
-  - openpyxl: Excel file handling
-
-- **Power BI Desktop**
-  - Interactive dashboards
-  - Advanced DAX calculations
-  - Time series visualizations
-
-## 📡 Data Sources (Detailed)
-
-| Source | Purpose | Example Series / Identifier |
-|--------|--------|-----------------------------|
-| FRED (Federal Reserve) | Macro & market indicators | `DTWEXBGS` (USD Index), `DFII10` (US 10Y TIPS real rate), `CPIAUCSL` (CPI), `DCOILBRENTEU` (Brent Oil), `SP500` (S&P 500), `VIXCLS` (VIX), `GFDEGDQ188S` (US Debt/GDP) |
-| World Bank | Global growth metrics | `NY.GDP.MKTP.KD.ZG` (China GDP growth % real) |
-| World Gold Council | Gold production & reserves | Annual production volumes, official holdings |
-| IMF / International Statistics | Monetary reserves context | Global FX reserves, gold reserve reports |
-
-You can refresh the dataset by re-running `notebooks/dataset_builder.ipynb` (requires internet access). All quarterly transformations are performed in-code via resampling utilities.
-
-### FRED Series Retrieval Quick Reference
-```python
-fred_series = [
-  "DTWEXBGS",      # USD Broad Index
-  "DFII10",        # 10Y TIPS Real Rate
-  "CPIAUCSL",      # CPI (processed to YoY inflation)
-  "DCOILBRENTEU",  # Brent Oil Price
-  "SP500",         # S&P 500 Index
-  "VIXCLS",        # Volatility Index
-  "GFDEGDQ188S"    # US Debt/GDP Ratio
-]
-```
-
-### World Bank Indicator
-```python
-wb_indicator = "NY.GDP.MKTP.KD.ZG"  # China real GDP growth (% change)
-```
-
-### Quarterly Transformation Helpers (Excerpt)
-```python
-def to_quarter_avg(s):
-  s = pd.Series(s).dropna()
-  s.index = pd.to_datetime(s.index)
-  return s.resample("Q").mean()
-
-def to_quarter_ffill(s):
-  s = pd.Series(s).dropna()
-  s.index = pd.to_datetime(s.index)
-  return s.resample("Q").ffill()
-```
-
-## 📊 Power BI Dashboard Enhancements
-
-The `powerbi/oro_y_poder.pbix` file contains:
-- Dynamic time-series comparison between gold price and macro drivers.
-- Slicers for date range, driver selection, and regional gold reserves.
-- DAX measures for YoY change, rolling averages, and volatility scoring.
-- Correlation visuals aligning gold movements with USD strength and real rates.
-
-### Updating the Dashboard
-1. Refresh data connections (if pointing to local processed Excel files).
-2. Re-run the dataset builder notebook for latest macro data.
-3. Export visuals for reports (File > Export > PDF or PowerPoint).
-4. Optional: Publish to Power BI Service for cloud sharing.
-
-### Recommended Additional Visuals (Future Work)
-- Decomposition tree: Gold price contributors per quarter.
-- Scatter matrix: Multi-driver comparative influence.
-- Forecast visual: ARIMA or Prophet integration via R/Python script in Power BI.
-
-## 📈 Dataset Description
-
-**Time Period:** Q1 2014 - Q4 2024 (Quarterly data)
-
-**Variables Analyzed:**
-- Gold prices (USD/oz)
-- USD Index (DXY)
-- US Real Interest Rates (10Y TIPS)
-- US Inflation (CPI YoY %)
-- Oil Prices (Brent crude)
-- S&P 500 Index
-- VIX (Volatility Index)
-- China GDP Growth
-- US Government Debt/GDP ratio
-- Global gold reserves
-- Gold mining production
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-```bash
-Python 3.9 or higher
-Power BI Desktop (for .pbix files)
-```
+- Jupyter Notebook or JupyterLab
+- Git (for cloning the repository)
 
 ### Installation
 
-1. Clone the repository
-```bash
-git clone https://github.com/rAmIro-89/gold-market-macroeconomic-analysis.git
-cd gold-market-macroeconomic-analysis
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rAmIro-89/gold-market-macroeconomic-analysis.git
+   cd gold-market-macroeconomic-analysis
+   ```
 
-2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
+2. **Create a virtual environment (recommended)**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-3. Run the notebooks
-```bash
-jupyter notebook notebooks/
-```
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ### Running the Analysis
 
-1. **Data Collection & Cleaning:** Open `notebooks/01_data_cleaning.ipynb` to inspect loading and initial normalization.
-2. **Exploratory Analysis (EDA):** Open `notebooks/02_eda.ipynb` for distributions, correlations and preliminary visuals.
-3. **Macro Relationships:** Open `notebooks/03_gold_vs_macro.ipynb` to explore gold vs USD index, real rates, inflation, oil, equities, volatility, China growth.
-4. **Final Visual Assets:** Open `notebooks/04_final_plots.ipynb` for consolidated figures used in reporting.
-5. **Interactive Dashboard:** Open `reports/dashboards/oro_y_poder.pbix` in Power BI Desktop.
+**Option 1: Execute All Notebooks Sequentially**
+```bash
+jupyter notebook notebooks/01_data_cleaning.ipynb
+```
+Then run notebooks in order: `01 → 02 → 03 → 04`
 
-## 📊 Power BI Dashboard
+**Option 2: Quick Demo Script**
+```bash
+python example_usage.py
+```
+Generates sample outputs and key statistics without opening notebooks.
 
-The Power BI dashboard includes:
-- Time series analysis of gold prices vs macroeconomic indicators
-- Correlation matrices and heatmaps
-- Regional analysis of gold reserves and production
-- Interactive filters for custom analysis
-
-## 🔍 Methodology
-
-1. **Data Collection:** Automated data extraction from FRED and World Bank APIs
-2. **Data Cleaning:** Handling missing values, outliers, and data alignment
-3. **Feature Engineering:** Creating quarterly aggregations and derived metrics
-4. **Exploratory Data Analysis:** Statistical analysis and visualization
-5. **Dashboard Development:** Interactive Power BI reporting
-
-For detailed methodology, see [docs/methodology.md](docs/methodology.md)
-
-## 📝 Key Insights
-
-### 1. Gold as Safe Haven
-Gold prices increase during periods of market uncertainty (high VIX), confirming its role as a safe-haven asset.
-
-### 2. Currency Impact
-Strong inverse correlation (-0.65) between gold prices and USD index, demonstrating gold's role as a dollar hedge.
-
-### 3. Real Rates Matter
-Real interest rates are the strongest predictor of gold prices - when real rates decline, gold becomes more attractive.
-
-### 4. Emerging Market Demand
-China's GDP growth shows positive correlation with gold consumption, highlighting importance of emerging market demand.
-
-## 🎓 Skills Demonstrated
-
-- **Data Engineering:** API integration, data pipelines, ETL processes
-- **Data Analysis:** Statistical analysis, correlation studies, trend analysis
-- **Data Visualization:** Power BI dashboards, Python plotting libraries
-- **Domain Knowledge:** Macroeconomics, financial markets, commodities
-- **Tools:** Python, Jupyter, Power BI, Excel, Git
-
-## 📫 Contact
-
-**Ramiro Ottone Villar**
-- GitHub: [@rAmIro-89](https://github.com/rAmIro-89)
-- LinkedIn: [Your LinkedIn Profile]
-- Email: [Your Email]
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Federal Reserve Economic Data (FRED) for economic data
-- World Bank for international indicators
-- World Gold Council for gold market data
-- IMF for global financial statistics
+**Option 3: Interactive Exploration**
+```bash
+jupyter lab
+```
+Open any notebook and explore analysis interactively.
 
 ---
 
-⭐ If you find this project useful, please consider giving it a star!
+## Technologies & Dependencies
+
+| Category | Tools |
+|----------|-------|
+| **Data Processing** | Pandas 1.5+, NumPy 1.24+ |
+| **Data Sources** | pandas-datareader (FRED API integration) |
+| **Visualization** | Matplotlib 3.5+, Seaborn 0.12+, Plotly 5.0+ |
+| **Statistical Analysis** | SciPy 1.10+, Statsmodels 0.14+ |
+| **Notebook Environment** | Jupyter, IPython |
+| **Configuration** | python-dotenv (for API keys) |
+
+See `requirements.txt` for complete dependency list.
+
+---
+
+## Key Insights for Investors
+
+### When to Consider Gold Exposure:
+✅ **Real interest rates turning negative** (nominal rate < inflation)  
+✅ **USD Index weakening** (DXY trending below 95)  
+✅ **Central bank accumulation accelerating** (quarterly purchases > 100 tonnes)  
+✅ **Gold/Oil ratio > 25** (potential mean reversion opportunity)  
+
+### When to Be Cautious:
+⚠️ **Rising real interest rates** (Fed tightening with low inflation)  
+⚠️ **Strong USD momentum** (DXY above 105)  
+⚠️ **Supply-demand balance shifting to surplus**  
+⚠️ **Gold/Oil ratio < 12** (gold potentially undervalued but risky)
+
+---
+
+## Skills Demonstrated
+
+- **Financial Data Analysis**: Multi-source data integration, time-series preprocessing
+- **Macroeconomic Reasoning**: Understanding complex relationships between economic variables
+- **Statistical Modeling**: Correlation analysis, regression, rolling window techniques
+- **Python Data Science Stack**: Pandas, NumPy, Matplotlib, Seaborn, Plotly, Statsmodels
+- **Time-Series Analysis**: Trend decomposition, seasonality, stationarity testing
+- **Data Visualization**: Publication-quality charts, multi-panel dashboards
+- **Research Methodology**: Hypothesis formulation, empirical testing, interpretation
+- **Storytelling with Data**: Translating complex analysis into actionable insights
+
+---
+
+## Future Enhancements
+
+- [ ] Machine learning models for gold price prediction (LSTM, Random Forest)
+- [ ] Real-time data pipeline with automated updates
+- [ ] Interactive Power BI or Tableau dashboard
+- [ ] Geopolitical risk index integration (VIX, EPU Index)
+- [ ] Sentiment analysis from financial news and social media
+- [ ] Portfolio optimization including gold allocation strategies
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+**Ramiro Ottone Villar**  
+[![GitHub](https://img.shields.io/badge/GitHub-rAmIro--89-181717?style=flat&logo=github)](https://github.com/rAmIro-89)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/your-profile)
+
+---
+
+## Acknowledgments
+
+- **Federal Reserve Economic Data (FRED)** - US macroeconomic indicators
+- **World Bank** - International economic data
+- **World Gold Council (WGC)** - Gold market supply/demand statistics
+- **International Monetary Fund (IMF)** - Global financial data
+
+---
+
+⭐ **If you find this analysis valuable, please consider starring the repository!**
