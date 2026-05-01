@@ -7,7 +7,7 @@
 ![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **> A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through Python-based time-series analysis, multi-source data processing, and an executive Power BI dashboard.**
+> **A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through Python-based time-series analysis, multi-source data processing, and an executive Power BI dashboard.**
 
 🧩 Problem Statement
 
@@ -123,7 +123,7 @@ Data Collection
 
 Sources: FRED, IMF, World Gold Council, World Bank
 
-Coverage: 1990–2023 (33 years)
+Coverage: 2014–2024 for the final dashboard and 1990–2023 for selected historical macroeconomic context.
 
 Frequency: Monthly & quarterly data
 
