@@ -4,9 +4,10 @@
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![Jupyter](https://img.shields.io/badge/jupyter-notebooks-orange)
 ![Pandas](https://img.shields.io/badge/pandas-data%20analysis-150458)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through advanced time-series techniques and multi-dimensional economic modeling.**
+> **> A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through Python-based time-series analysis, multi-source data processing, and an executive Power BI dashboard.**
 
 🧩 Problem Statement
 
@@ -105,6 +106,18 @@ Fundamental constraints affecting long-term pricing
 ![Physical Market](img/03-physical-gold-market.png)
 *Figure 3 — Global physical gold market and reserve dynamics*
 
+4. Power BI Dashboard
+
+Executive dashboard designed to communicate macro-financial insights clearly
+
+Gold price evolution and long-term trend behavior
+
+Gold vs. USD Index, inflation, real rates, and oil market relationships
+
+Volatility, drawdowns, and risk-condition monitoring
+
+Business-oriented storytelling layer for financial reporting and decision support
+
 🧠 Methodology
 Data Collection
 
@@ -130,13 +143,17 @@ Real vs nominal price transformations
 
 Time-series feature engineering
 
-Visualization
+Visualization & BI Dashboard
 
 Python: Matplotlib, Seaborn, Plotly
 
-Multi-panel dashboards in Jupyter Notebooks
+Jupyter Notebooks for exploratory analysis and statistical modeling
 
-Publication-quality visualizations and interactive plots
+Power BI dashboard for executive-level macro-financial storytelling
+
+Interactive KPI views covering gold price dynamics, macro indicators, risk metrics, and market relationships
+
+Publication-quality visualizations for analytical reporting
 
 📁 Project Structure
 gold-market-macroeconomic-analysis/
@@ -190,11 +207,13 @@ Financial data engineering
 
 Advanced correlation & regression analysis
 
-Visualization storytelling
+Power BI dashboard development
+
+Business intelligence storytelling
 
 Research-grade methodology
 
-Python DS stack
+Python data science stack
 
 Multi-source data integration
 
@@ -204,9 +223,13 @@ Machine learning models for gold forecasting
 
 Automated data ingestion pipeline
 
-Extended geopolitical risk models (VIX, EPU Index)
+Publish an online version of the Power BI dashboard
 
-Interactive BI dashboard
+Automate Power BI data refresh from the Python pipeline
+
+Add additional dashboard pages for portfolio allocation and scenario analysis
+
+Extended geopolitical risk models (VIX, EPU Index)
 
 Portfolio optimization using gold
 
