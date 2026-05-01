@@ -9,7 +9,7 @@
 
 > **A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through Python-based time-series analysis, multi-source data processing, and an executive Power BI dashboard.**
 
-🧩 ##Problem Statement
+## 🧩 Problem Statement
 
 Gold plays a dual role in the global economy:
 
@@ -31,7 +31,7 @@ Geopolitical risk and liquidity regimes
 
 This project develops a data-driven analytical framework to quantify these relationships and to explain how macroeconomic forces shape gold prices over time.
 
-📌 ##Key Findings
+## 📌 Key Findings
 1. Inverse USD–Gold Relationship
 
 Strong long-term negative correlation (avg. ≈ –0.70)
@@ -64,7 +64,7 @@ Mining supply growth is structurally limited
 
 Supply–demand balances highlight secular bullish pressure
 
-📊 ##Features & Analysis
+## 📊 Features & Analysis
 1. Technical Analysis & Risk Metrics
 
 Gold vs USD Index
@@ -118,7 +118,7 @@ Volatility, drawdowns, and risk-condition monitoring
 
 Business-oriented storytelling layer for financial reporting and decision support
 
-🧠 ##Methodology
+## 🧠 Methodology
 ### Data Collection
 
 Sources: FRED, IMF, World Gold Council, World Bank
@@ -155,7 +155,7 @@ Interactive KPI views covering gold price dynamics, macro indicators, risk metri
 
 Publication-quality visualizations for analytical reporting
 
-📁 ##Project Structure
+## 📁 Project Structure
 gold-market-macroeconomic-analysis/
 │
 ├── notebooks/
