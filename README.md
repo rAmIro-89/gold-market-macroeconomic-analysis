@@ -6,7 +6,7 @@
 ![Pandas](https://img.shields.io/badge/pandas-data%20analysis-150458)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **A comprehensive macro-financial analysis exploring the relationship between gold prices and global economic indicators through advanced time-series techniques and multi-dimensional economic modeling.**
+> **A structured macro-financial analysis exploring the relationship between gold prices and global economic indicators through documented time-series methods and multi-source data preparation.**
 
 🧩 Problem Statement
 
@@ -28,14 +28,14 @@ Central bank reserve policies
 
 Geopolitical risk and liquidity regimes
 
-This project develops a data-driven analytical framework to quantify these relationships and to explain how macroeconomic forces shape gold prices over time.
+This project examines descriptive relationships observed during the analysed period using time-series methods and multi-source data preparation.
 
 📌 Key Findings
 1. Inverse USD–Gold Relationship
 
 Strong long-term negative correlation (avg. ≈ –0.70)
 
-Dollar depreciation reliably supports gold price rallies
+Dollar depreciation was associated with gold price rallies during parts of the analysed period
 
 During market stress, correlations weaken and can reverse
 
@@ -43,7 +43,7 @@ During market stress, correlations weaken and can reverse
 
 Gold exhibits enhanced performance when real interest rates turn negative
 
-CPI alone is an imperfect predictor—real rates have the highest explanatory power
+CPI alone was an imperfect descriptor; real rates showed the strongest association in the analysed period
 
 Inflation shocks correspond to periods of structural upward repricing
 
@@ -51,7 +51,7 @@ Inflation shocks correspond to periods of structural upward repricing
 
 Long-term mean: ≈ 15–20 barrels per ounce
 
-Ratios > 30 suggest overvaluation (or undervalued oil)
+Ratios > 30 were interpreted as potential divergence signals within the analysed period
 
 Useful for mean-reversion strategies during macro dislocations
 
@@ -61,7 +61,7 @@ Central banks have accumulated 400+ tonnes annually since 2010
 
 Mining supply growth is structurally limited
 
-Supply–demand balances highlight secular bullish pressure
+Supply–demand balances were consistent with a supportive medium-term backdrop in the analysed period
 
 📊 Features & Analysis
 1. Technical Analysis & Risk Metrics
@@ -192,7 +192,7 @@ Advanced correlation & regression analysis
 
 Visualization storytelling
 
-Research-grade methodology
+Structured analytical methodology
 
 Python DS stack
 
@@ -200,7 +200,7 @@ Multi-source data integration
 
 🚀 Future Enhancements
 
-Machine learning models for gold forecasting
+Exploratory scenario analysis experiments
 
 Automated data ingestion pipeline
 
@@ -220,7 +220,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Ramiro Ottone Villar**  
 [![GitHub](https://img.shields.io/badge/GitHub-rAmIro--89-181717?style=flat&logo=github)](https://github.com/rAmIro-89)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/your-profile)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/ramiro-ottone-villar)
 
 ---
 
